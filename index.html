@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nyein Chan Ko Ko</title>
+  <link rel="stylesheet" href="mystyle.css">
+</head>
+
+<body>
+  <div class="inbox">
+    <div id="toggle">
+      <div class="circle">
+        <img class="star" src="images/icon-star.svg" />
+
+      </div>
+
+      <h1 class="heading">
+        How did we do?
+      </h1>
+
+      <p class="text">
+        Please let us know how we did with your support request.All feedback is appreciated to help us improve our
+        offering!
+      </p>
+
+      <div id="myDIV" class="number main">
+        <div class="btn" id="button1" onclick="getValue(1)">1</div>
+        <div class="btn" id="button2" onclick="getValue(2)">2</div>
+        <div class="btn" id="button3" onclick="getValue(3)">3</div>
+        <div class="btn" id="button4" onclick="getValue(4)">4</div>
+        <div class="btn" id="button5" onclick="getValue(5)">5</div>
+      </div>
+
+      <div class="mainbox">
+        <button class="box" id="submitBtn" onclick="submitForm()">SUBMIT</button>
+      </div>
+    </div>
+
+    <div class="hidden" id="hidden">
+        <img class="imge" src="images/illustration-thank-you.svg" />
+      <div class="rate">
+        <p id="value"></p>
+      </div>
+
+      <div class="thank">
+        <h3>Thank You!</h3>
+      </div>
+
+      <div class="p1">
+        <p>We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get
+          in touch!</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Declare a variable to store the selected value
+    var selectedValue;
+
+    // Function to be called when a button is clicked
+    function getValue(value) {
+      // If there was a previously selected button, remove its 'active' class
+      if (selectedValue !== undefined) {
+        document.getElementById("button" + selectedValue).classList.remove("active");
+      }
+
+      // Assign the selected value to the variable
+      selectedValue = value;
+
+      // Add 'active' class to the clicked button
+      document.getElementById("button" + selectedValue).classList.add("active");
+    }
+
+    function submitForm() {
+      const value = 'You Selected ' + selectedValue + ' out of 5';
+      document.getElementById('toggle').style.display = 'none';
+      document.getElementById('value').innerHTML = value;
+      document.getElementById('hidden').style.display = 'flex';
+    }
+  </script>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
